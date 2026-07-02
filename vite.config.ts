@@ -29,6 +29,15 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: htmlEntries,
+      output: {
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name].[ext]',
+        // キャッシュバスティングが必要な場合はハッシュ付きに戻す
+        // entryFileNames: 'assets/[name]-[hash].js',
+        // chunkFileNames: 'assets/[name]-[hash].js',
+        // assetFileNames: 'assets/[name]-[hash].[ext]',
+      },
     },
   },
   test: {
